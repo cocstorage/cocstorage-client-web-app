@@ -14,10 +14,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@stackflow/core": "^1.0.8",
+    "@stackflow/plugin-basic-ui": "^1.4.1",
+    "@stackflow/plugin-renderer-basic": "^1.1.5",
+    "@stackflow/react": "^1.1.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/node": "^20.10.4",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
