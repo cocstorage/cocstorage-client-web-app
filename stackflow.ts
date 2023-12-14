@@ -1,9 +1,9 @@
 import { basicUIPlugin } from '@stackflow/plugin-basic-ui';
+import { historySyncPlugin } from '@stackflow/plugin-history-sync';
 import { basicRendererPlugin } from '@stackflow/plugin-renderer-basic';
 import { stackflow } from '@stackflow/react';
 
 import HomeActivity from '@activities/HomeActivity';
-import MyActivity from '@activities/MyActivity';
 
 export const { Stack, activities } = stackflow({
   transitionDuration: 350,
@@ -11,11 +11,16 @@ export const { Stack, activities } = stackflow({
     basicRendererPlugin(),
     basicUIPlugin({
       theme: 'cupertino'
+    }),
+    historySyncPlugin({
+      routes: {
+        HomeActivity: '/'
+      },
+      fallbackActivity: () => 'HomeActivity'
     })
   ],
   activities: {
-    HomeActivity,
-    MyActivity
+    HomeActivity
   },
   initialActivity: () => 'HomeActivity'
 });

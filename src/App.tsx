@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 
-import { Stack } from './stackflow';
+import ThemeProvider from '@providers/ThemeProvider';
+
+import { Stack } from '../stackflow';
 
 function App() {
   useEffect(() => {
@@ -15,7 +17,11 @@ function App() {
     };
   }, []);
 
-  return <Stack />;
+  return (
+    <ThemeProvider>
+      <Stack />
+    </ThemeProvider>
+  );
 }
 
 export default App;

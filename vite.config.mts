@@ -12,14 +12,26 @@ export default defineConfig({
         replacement: path.resolve(__dirname, 'src/activities')
       },
       {
+        find: '@components',
+        replacement: path.resolve(__dirname, 'src/components')
+      },
+      {
         find: '@hooks',
         replacement: path.resolve(__dirname, 'src/hooks')
+      },
+      {
+        find: '@providers',
+        replacement: path.resolve(__dirname, 'src/providers')
+      },
+      {
+        find: '@stores',
+        replacement: path.resolve(__dirname, 'src/stores')
+      },
+      {
+        find: '@typings',
+        replacement: path.resolve(__dirname, 'src/typings')
       }
     ]
   },
-  plugins: [react()],
-  server: {
-    host: '192.168.0.37',
-    port: 3000
-  }
+  plugins: [react()]
 });

@@ -7,12 +7,23 @@
     "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
+    "types": ["vite/client"],
     "baseUrl": ".",
     "paths": {
       "@activities": ["./src/activities"],
       "@activities/*": ["./src/activities/*"],
+      "@components": ["./src/components"],
+      "@components/*": ["./src/components/*"],
       "@hooks": ["./src/hooks"],
-      "@hooks/*": ["./src/hooks/*"]
+      "@hooks/*": ["./src/hooks/*"],
+      "@providers": ["./src/providers"],
+      "@providers/*": ["./src/providers/*"],
+      "@stores": ["./src/stores"],
+      "@stores/*": ["./src/stores/*"],
+      "@styles": ["./src/styles"],
+      "@styles/*": ["./src/styles/*"],
+      "@typings": ["./src/typings"],
+      "@typings/*": ["./src/typings/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],
