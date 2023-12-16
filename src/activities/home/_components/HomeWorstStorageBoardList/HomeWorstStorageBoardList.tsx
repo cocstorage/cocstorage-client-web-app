@@ -64,12 +64,12 @@ function HomeWorstStorageBoardList() {
           Array.from({ length: 5 })
             .map((_, index) => index)
             .map((index) => (
-              <StorageBoardCard.Skeleton key={`best-storage-board-${index}`} variant="normal" />
+              <StorageBoardCard.Skeleton key={`worst-storage-board-${index}`} variant="normal" />
             ))}
         {!isPending &&
           data?.boards?.map((storageBoard) => (
             <StorageBoardCard
-              key={`best-storage-board-${storageBoard.id}`}
+              key={`worst-storage-board-${storageBoard.id}`}
               variant="normal"
               storageBoard={storageBoard}
               hideSymbolismBadge

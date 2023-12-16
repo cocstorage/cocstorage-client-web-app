@@ -12,7 +12,8 @@ const storages = {
 const storageBoards = {
   all: () => [...storages.all, 'boards'],
   popular: () => [...storageBoards.all(), 'popular'],
-  worst: () => [...storageBoards.all(), 'worst']
+  worst: () => [...storageBoards.all(), 'worst'],
+  latest: () => [...storageBoards.all(), 'latest']
 };
 
 const notices = {
