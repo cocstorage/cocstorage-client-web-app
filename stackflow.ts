@@ -3,7 +3,8 @@ import { historySyncPlugin } from '@stackflow/plugin-history-sync';
 import { basicRendererPlugin } from '@stackflow/plugin-renderer-basic';
 import { stackflow } from '@stackflow/react';
 
-import HomeActivity from '@activities/HomeActivity';
+import HomeActivity from '@activities/home/activity';
+import NoticeActivity from '@activities/notices/[id]/activity';
 
 export const { Stack, activities } = stackflow({
   transitionDuration: 350,
@@ -14,15 +15,16 @@ export const { Stack, activities } = stackflow({
     }),
     historySyncPlugin({
       routes: {
-        HomeActivity: '/'
+        HomeActivity: '/',
+        NoticeActivity: '/notices/:id'
       },
       fallbackActivity: () => 'HomeActivity'
     })
   ],
   activities: {
-    HomeActivity
-  },
-  initialActivity: () => 'HomeActivity'
+    HomeActivity,
+    NoticeActivity
+  }
 });
 
 export type TypeActivities = typeof activities;

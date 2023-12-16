@@ -4,8 +4,8 @@ function Logo() {
   return (
     <Flexbox component="button" gap={8} alignment="center">
       <Image
-        width={34}
-        height={25.5}
+        width={32}
+        height={24}
         src={`https://${import.meta.env.VITE_IMAGE_DOMAIN}/assets/logo.png`}
         alt="개념글 저장소"
         disableAspectRatio

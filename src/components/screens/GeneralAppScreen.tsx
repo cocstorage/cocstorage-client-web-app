@@ -19,14 +19,22 @@ function GeneralAppScreen({ children, appBar }: PropsWithChildren<GeneralAppScre
 
   return (
     <AppScreen appBar={appBar} backgroundColor={background.bg}>
-      <Content>{children}</Content>
+      <AppScreenInner>
+        <Content>{children}</Content>
+      </AppScreenInner>
     </AppScreen>
   );
 }
 
-const Content = styled.div`
-  padding: 0 20px;
+const AppScreenInner = styled.div`
+  display: flex;
+  flex-direction: column;
   height: 100%;
+`;
+
+const Content = styled.div`
+  flex-grow: 1;
+  padding: 0 1.25rem;
 `;
 
 export default GeneralAppScreen;

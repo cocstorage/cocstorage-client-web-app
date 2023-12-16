@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 
+import QueryClientProvider from '@providers/QueryClientProvider';
 import ThemeProvider from '@providers/ThemeProvider';
 
 import { Stack } from '../stackflow';
@@ -10,17 +11,19 @@ function App() {
     const root = document.getElementById('root');
     const handleTouchStart = (event: TouchEvent) => event.preventDefault();
 
-    root.addEventListener('touchmove', handleTouchStart);
+    root?.addEventListener('touchmove', handleTouchStart);
 
     return () => {
-      root.removeEventListener('touchmove', handleTouchStart);
+      root?.removeEventListener('touchmove', handleTouchStart);
     };
   }, []);
 
   return (
-    <ThemeProvider>
-      <Stack />
-    </ThemeProvider>
+    <QueryClientProvider>
+      <ThemeProvider>
+        <Stack />
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
 
