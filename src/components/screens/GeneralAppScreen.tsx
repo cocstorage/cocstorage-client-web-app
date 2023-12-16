@@ -20,7 +20,7 @@ function GeneralAppScreen({ children, appBar }: PropsWithChildren<GeneralAppScre
   return (
     <AppScreen appBar={appBar} backgroundColor={background.bg}>
       <AppScreenInner>
-        <Content>{children}</Content>
+        <Content id="app-screen-content">{children}</Content>
       </AppScreenInner>
     </AppScreen>
   );

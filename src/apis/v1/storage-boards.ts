@@ -8,26 +8,6 @@ import { StorageBoard } from '@schemas/v1/storage-boards/response';
 
 const BASE_PATH = '/storages';
 
-export async function fetchIndexPopularStorageBoards() {
-  const { data } = await Axios.get<FetchStorageBoardsResponse>(`${BASE_PATH}/boards/popular`, {
-    params: {
-      per: 5
-    }
-  });
-
-  return data;
-}
-
-export async function fetchIndexWorstStorageBoards() {
-  const { data } = await Axios.get<FetchStorageBoardsResponse>(`${BASE_PATH}/boards/worst`, {
-    params: {
-      per: 5
-    }
-  });
-
-  return data;
-}
-
 export async function fetchPopularStorageBoards(params?: FetchStorageBoardsParams) {
   const { data } = await Axios.get<FetchStorageBoardsResponse>(`${BASE_PATH}/boards/popular`, {
     params

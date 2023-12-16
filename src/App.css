@@ -33,3 +33,13 @@
   font-display: swap;
   src: url('./styles/fonts/MinSansVF.woff2') format('woff2');
 }
+
+* ::-webkit-scrollbar {
+  display: none;
+}
+* ::-webkit-scrollbar-track {
+  display: none;
+}
+* ::-webkit-scrollbar-thumb {
+  display: none;
+}

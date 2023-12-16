@@ -11,13 +11,11 @@ function HomeNoticeAlert() {
   const { data, isPending } = useQuery({
     queryKey: queryKey.notices.all({
       per: 1,
-      page: 1,
       orderBy: 'latest'
     }),
     queryFn: () =>
       fetchNotices({
         per: 1,
-        page: 1,
         orderBy: 'latest'
       })
   });
