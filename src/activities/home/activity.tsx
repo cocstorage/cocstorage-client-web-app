@@ -1,3 +1,4 @@
+import BottomNavigation from '@components/molecules/BottomNavigation';
 import GeneralAppScreen from '@components/screens/GeneralAppScreen';
 
 import HomeAppBar from './_components/HomeAppBar';
@@ -9,7 +10,7 @@ import HomeWorstStorageBoardList from './_components/HomeWorstStorageBoardList';
 
 function HomeActivity() {
   return (
-    <GeneralAppScreen appBar={HomeAppBar()}>
+    <GeneralAppScreen appBar={HomeAppBar()} bottomNavigation={<BottomNavigation />}>
       <HomeNoticeAlert />
       <HomeIssueKeywordRank />
       <HomeBestStorageBoardList />

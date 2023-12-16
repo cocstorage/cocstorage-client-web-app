@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, ReactNode } from 'react';
 
 import { useTheme } from '@cocstorage/ui';
 import styled from '@emotion/styled';
@@ -8,9 +8,14 @@ import type AppBar from '@components/molecules/AppBar';
 
 interface GeneralAppScreenProps {
   appBar?: ReturnType<typeof AppBar>;
+  bottomNavigation?: ReactNode;
 }
 
-function GeneralAppScreen({ children, appBar }: PropsWithChildren<GeneralAppScreenProps>) {
+function GeneralAppScreen({
+  children,
+  appBar,
+  bottomNavigation
+}: PropsWithChildren<GeneralAppScreenProps>) {
   const {
     theme: {
       palette: { background }
@@ -20,7 +25,8 @@ function GeneralAppScreen({ children, appBar }: PropsWithChildren<GeneralAppScre
   return (
     <AppScreen appBar={appBar} backgroundColor={background.bg}>
       <AppScreenInner>
-        <Content id="app-screen-content">{children}</Content>
+        <Content>{children}</Content>
+        {bottomNavigation}
       </AppScreenInner>
     </AppScreen>
   );
@@ -33,8 +39,9 @@ const AppScreenInner = styled.div`
 `;
 
 const Content = styled.div`
-  flex-grow: 1;
+  flex: 1;
   padding: 0 1.25rem;
+  overflow-y: auto;
 `;
 
 export default GeneralAppScreen;
