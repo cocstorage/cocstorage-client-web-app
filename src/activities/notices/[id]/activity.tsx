@@ -1,11 +1,14 @@
-import { Typography } from '@cocstorage/ui';
-
 import GeneralAppScreen from '@components/screens/GeneralAppScreen';
+
+import NoticeAppBar from './_components/NoticeAppBar';
+import NoticeContent from './_components/NoticeContent';
+import NoticeInfo from './_components/NoticeInfo';
 
 function NoticeActivity() {
   return (
-    <GeneralAppScreen>
-      <Typography>새로운 소식</Typography>
+    <GeneralAppScreen appBar={NoticeAppBar()}>
+      <NoticeInfo />
+      <NoticeContent />
     </GeneralAppScreen>
   );
 }

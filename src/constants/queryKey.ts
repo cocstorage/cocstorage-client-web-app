@@ -1,4 +1,5 @@
 import { FetchNoticesParams } from '@schemas//v1/notices/request';
+import { Id } from '@typings/common';
 
 const issueKeywords = {
   all: ['issue-keywords'],
@@ -17,7 +18,8 @@ const storageBoards = {
 };
 
 const notices = {
-  all: (params: FetchNoticesParams) => ['notices', params]
+  all: (params: FetchNoticesParams) => ['notices', params],
+  notice: (id: Id) => [...notices.all({}), id]
 };
 
 export default {

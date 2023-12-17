@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactNode } from 'react';
+import { PropsWithChildren, ReactNode, useLayoutEffect, useRef } from 'react';
 
 import { useTheme } from '@cocstorage/ui';
 import styled from '@emotion/styled';
@@ -22,10 +22,18 @@ function GeneralAppScreen({
     }
   } = useTheme();
 
+  const appScreenContentRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    if (appScreenContentRef.current) {
+      window.appScreenContent = appScreenContentRef.current;
+    }
+  }, []);
+
   return (
     <AppScreen appBar={appBar} backgroundColor={background.bg}>
       <AppScreenInner>
-        <Content>{children}</Content>
+        <AppScreenContent ref={appScreenContentRef}>{children}</AppScreenContent>
         {bottomNavigation}
       </AppScreenInner>
     </AppScreen>
@@ -38,7 +46,7 @@ const AppScreenInner = styled.div`
   height: 100%;
 `;
 
-const Content = styled.div`
+const AppScreenContent = styled.main`
   flex: 1;
   padding: 0 1.25rem;
   overflow-y: auto;

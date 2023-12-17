@@ -1,23 +1,36 @@
 import { ReactNode } from 'react';
 
 import { Box } from '@cocstorage/ui';
+import Icon from '@cocstorage/ui-icons';
 
-import Logo from '@components/atoms/Logo';
+import { HEADER_HEIGHT } from '@constants/style';
 
 export interface AppBarProps {
+  title?: string | ReactNode;
   height?: string;
   renderLeft?: ReactNode;
   renderRight?: ReactNode;
+  backButton?: {
+    renderIcon?: ReactNode;
+    onClick?: () => void;
+  };
+  borderColor?: string;
   borderSize?: string;
 }
 
 function AppBar({
-  height = '50px',
-  renderLeft = <Logo />,
+  title,
+  height = `${HEADER_HEIGHT}px`,
+  renderLeft,
   renderRight,
+  backButton = {
+    renderIcon: <Icon name="CaretSemiLeftOutlined" />
+  },
+  borderColor,
   borderSize = '0'
 }: AppBarProps = {}) {
   return {
+    title,
     height,
     renderLeft: () => (
       <Box
@@ -37,6 +50,11 @@ function AppBar({
         {renderRight}
       </Box>
     ),
+    backButton: {
+      renderIcon: () => backButton?.renderIcon,
+      onClick: backButton?.onClick
+    },
+    borderColor,
     borderSize
   };
 }
