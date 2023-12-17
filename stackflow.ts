@@ -5,6 +5,7 @@ import { stackflow } from '@stackflow/react';
 
 import HomeActivity from '@activities/home/activity';
 import NoticeActivity from '@activities/notices/[id]/activity';
+import StoragesActivity from '@activities/storages/activity';
 
 export const { Stack, activities } = stackflow({
   transitionDuration: 350,
@@ -16,6 +17,7 @@ export const { Stack, activities } = stackflow({
     historySyncPlugin({
       routes: {
         HomeActivity: '/',
+        StoragesActivity: '/storages',
         NoticeActivity: '/notices/:id'
       },
       fallbackActivity: () => 'HomeActivity'
@@ -23,8 +25,10 @@ export const { Stack, activities } = stackflow({
   ],
   activities: {
     HomeActivity,
+    StoragesActivity,
     NoticeActivity
   }
 });
 
 export type TypeActivities = typeof activities;
+export type TypeActivityNames = keyof TypeActivities;

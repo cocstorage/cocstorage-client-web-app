@@ -8,6 +8,7 @@ import useFlow from '@hooks/useFlow';
 
 function HomeNoticeAlert() {
   const { push } = useFlow();
+
   const { data, isPending } = useQuery({
     queryKey: queryKey.notices.all({
       per: 1,

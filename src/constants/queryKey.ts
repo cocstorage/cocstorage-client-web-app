@@ -10,6 +10,10 @@ const storages = {
   all: ['storages']
 };
 
+const storageCategories = {
+  all: ['storage-categories']
+};
+
 const storageBoards = {
   all: () => [...storages.all, 'boards'],
   popular: () => [...storageBoards.all(), 'popular'],
@@ -25,6 +29,7 @@ const notices = {
 export default {
   issueKeywords,
   storages,
+  storageCategories,
   storageBoards,
   notices
 };

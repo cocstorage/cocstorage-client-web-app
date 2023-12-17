@@ -1,9 +1,14 @@
 import { Box, Typography, useTheme } from '@cocstorage/ui';
 import Icon from '@cocstorage/ui-icons';
 
+import useFlow from '@hooks/useFlow';
+import type { TypeActivityNames } from '@stackflow';
+
 import { StyledBottomNavigation, NavigationItem } from './BottomNavigation.styles';
 
 function BottomNavigation() {
+  const { replace } = useFlow();
+
   const {
     theme: {
       mode,
@@ -11,22 +16,31 @@ function BottomNavigation() {
     }
   } = useTheme();
 
+  const handleClick = (activityName: TypeActivityNames) => () =>
+    replace(
+      activityName,
+      {},
+      {
+        animate: false
+      }
+    );
+
   return (
     <Box component="nav" customStyle={{ minHeight: 60 }}>
       <StyledBottomNavigation>
-        <NavigationItem data-pathname="/">
+        <NavigationItem onClick={handleClick('HomeActivity')}>
           <Icon name="HomeFilled" color="primary" />
           <Typography variant="s2" color="primary">
             홈
           </Typography>
         </NavigationItem>
-        <NavigationItem data-pathname="/storages">
+        <NavigationItem onClick={handleClick('StoragesActivity')}>
           <Icon name="CommunityOutlined" color={text[mode].text2} />
           <Typography variant="s2" color={text[mode].text2}>
             게시판
           </Typography>
         </NavigationItem>
-        <NavigationItem data-pathname="/my">
+        <NavigationItem onClick={handleClick('StoragesActivity')}>
           <Icon name="UserOutlined" color={text[mode].text2} />
           <Typography variant="s2" color={text[mode].text2}>
             마이

@@ -11,6 +11,7 @@ import { Info } from './NoticeInfo.styles';
 
 function NoticeInfo() {
   const { id }: { id?: string } = useActivityParams();
+
   const {
     theme: {
       mode,
