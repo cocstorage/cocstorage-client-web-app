@@ -19,7 +19,8 @@ function HomeAppBar() {
           <Icon name="SearchOutlined" />
         </IconButton>
       </Flexbox>
-    )
+    ),
+    disableCloseButton: true
   });
 }
 

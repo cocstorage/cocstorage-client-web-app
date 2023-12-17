@@ -15,7 +15,7 @@
     "jsxImportSource": "@emotion/react",
     "baseUrl": ".",
     "paths": {
-      "@stackflow": ["./stackflow"],
+      "@stackflow-config": ["./stackflow"],
       "@activities": ["./src/activities"],
       "@activities/*": ["./src/activities/*"],
       "@apis": ["./src/apis"],

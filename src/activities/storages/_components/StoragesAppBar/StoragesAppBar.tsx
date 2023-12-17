@@ -14,7 +14,8 @@ function StoragesAppBar() {
       <IconButton>
         <Icon name="SearchOutlined" />
       </IconButton>
-    )
+    ),
+    disableCloseButton: true
   });
 }
 
