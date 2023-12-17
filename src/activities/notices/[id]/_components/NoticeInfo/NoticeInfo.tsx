@@ -1,17 +1,11 @@
 import { Avatar, Box, Flexbox, Skeleton, Typography, useTheme } from '@cocstorage/ui';
 import Icon from '@cocstorage/ui-icons';
-import { useActivityParams } from '@stackflow/react';
-import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
 
-import { fetchNotice } from '@apis/v1/notices';
-import queryKey from '@constants/queryKey';
-
 import { Info } from './NoticeInfo.styles';
+import useNotice from '../../_hooks/useNotice';
 
 function NoticeInfo() {
-  const { id }: { id?: string } = useActivityParams();
-
   const {
     theme: {
       mode,
@@ -19,12 +13,7 @@ function NoticeInfo() {
     }
   } = useTheme();
 
-  const { data, isPending } = useQuery({
-    queryKey: queryKey.notices.notice(id),
-    queryFn: () => fetchNotice(id)
-  });
-
-  const { user, viewCount, createdAt } = data || {};
+  const { data, isPending } = useNotice();
 
   return (
     <Box component="section" customStyle={{ marginTop: 10 }}>
@@ -52,7 +41,7 @@ function NoticeInfo() {
             <Avatar
               width={24}
               height={24}
-              src={user?.avatarUrl || ''}
+              src={data?.user?.avatarUrl || ''}
               alt="User Avatar Img"
               fallback={{
                 width: 12,
@@ -60,16 +49,16 @@ function NoticeInfo() {
               }}
             />
             <Typography variant="s1" color={text[mode].text1} customStyle={{ marginLeft: 4 }}>
-              {user?.nickname}
+              {data?.user?.nickname}
             </Typography>
           </Flexbox>
           <Typography variant="s1" color={text[mode].text1}>
-            {dayjs(createdAt).fromNow()}
+            {dayjs(data?.createdAt).fromNow()}
           </Typography>
           <Flexbox alignment="center" customStyle={{ marginLeft: 10 }}>
             <Icon width={16} height={16} name="ViewOutlined" color={text[mode].text1} />
             <Typography variant="s2" color={text[mode].text1} customStyle={{ marginLeft: 2 }}>
-              {viewCount?.toLocaleString()}
+              {data?.viewCount?.toLocaleString()}
             </Typography>
           </Flexbox>
         </Info>

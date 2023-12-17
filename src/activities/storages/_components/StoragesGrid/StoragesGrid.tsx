@@ -2,18 +2,16 @@ import { Box, Grid, Skeleton, Typography } from '@cocstorage/ui';
 import { useQuery } from '@tanstack/react-query';
 
 import useCategoryStore from '@activities/storages/_stores/category';
-import { fetchStorageCategories } from '@apis/v1/storage-categories';
 import { fetchStorages } from '@apis/v1/storages';
 import StorageCard from '@components/molecules/StorageCard';
 import queryKey from '@constants/queryKey';
 
+import useStorageCategories from '../../_hooks/useStorageCategories';
+
 function StoragesGrid() {
   const selectedCategoryId = useCategoryStore((state) => state.selectedCategoryId);
 
-  const { data, isPending } = useQuery({
-    queryKey: queryKey.storageCategories.all,
-    queryFn: () => fetchStorageCategories()
-  });
+  const { data, isPending } = useStorageCategories();
 
   const { data: storages, isPending: isPendingStorages } = useQuery({
     queryKey: queryKey.storages.all,
@@ -71,9 +69,9 @@ function StoragesGrid() {
           {name}
         </Typography>
         <Grid container columnGap={16} rowGap={20} customStyle={{ marginTop: 10 }}>
-          {categoryStorages.map(({ id: storageId, path, name: storageName, avatarUrl }) => (
+          {categoryStorages.map(({ id: storageId, name: storageName, avatarUrl }) => (
             <Grid key={`storage-category-${id}-storage-${storageId}`} item xs={3}>
-              <StorageCard src={avatarUrl || ''} path={path} name={storageName} />
+              <StorageCard src={avatarUrl || ''} name={storageName} />
             </Grid>
           ))}
         </Grid>

@@ -1,21 +1,15 @@
 import { MouseEvent } from 'react';
 
 import { Skeleton, Tag } from '@cocstorage/ui';
-import { useQuery } from '@tanstack/react-query';
-
-import { fetchStorageCategories } from '@apis/v1/storage-categories';
-import queryKey from '@constants/queryKey';
 
 import { StyledStoragesCategoryList } from './StoragesCategoryList.styles';
+import useStorageCategories from '../../_hooks/useStorageCategories';
 import useCategoryStore from '../../_stores/category';
 
 function StoragesCategoryList() {
   const { selectedCategoryId, setSelectedCategoryId } = useCategoryStore();
 
-  const { data, isPending } = useQuery({
-    queryKey: queryKey.storageCategories.all,
-    queryFn: () => fetchStorageCategories()
-  });
+  const { data, isPending } = useStorageCategories();
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
     const newSelectedCategoryId = Number(event.currentTarget.dataset?.selectedCategoryId);
