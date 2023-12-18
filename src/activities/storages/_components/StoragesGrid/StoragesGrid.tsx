@@ -1,12 +1,12 @@
 import { Box, Grid, Skeleton, Typography } from '@cocstorage/ui';
 import { useQuery } from '@tanstack/react-query';
 
-import useCategoryStore from '@activities/storages/_stores/category';
 import { fetchStorages } from '@apis/v1/storages';
 import StorageCard from '@components/molecules/StorageCard';
 import queryKey from '@constants/queryKey';
 
 import useStorageCategories from '../../_hooks/useStorageCategories';
+import useCategoryStore from '../../_stores/category';
 
 function StoragesGrid() {
   const selectedCategoryId = useCategoryStore((state) => state.selectedCategoryId);
@@ -38,7 +38,7 @@ function StoragesGrid() {
         >
           <Skeleton width={70} height={20} round={6} disableAspectRatio />
           <Grid container columnGap={16} rowGap={20} customStyle={{ marginTop: 10 }}>
-            {Array.from({ length: 5 })
+            {Array.from({ length: 9 })
               .map((_, gridIndex) => gridIndex)
               .map((gridIndex) => (
                 <Grid
@@ -69,9 +69,9 @@ function StoragesGrid() {
           {name}
         </Typography>
         <Grid container columnGap={16} rowGap={20} customStyle={{ marginTop: 10 }}>
-          {categoryStorages.map(({ id: storageId, name: storageName, avatarUrl }) => (
+          {categoryStorages.map(({ id: storageId, name: storageName, path, avatarUrl }) => (
             <Grid key={`storage-category-${id}-storage-${storageId}`} item xs={3}>
-              <StorageCard src={avatarUrl || ''} name={storageName} />
+              <StorageCard src={avatarUrl || ''} path={path} name={storageName} />
             </Grid>
           ))}
         </Grid>

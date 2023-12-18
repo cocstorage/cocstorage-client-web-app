@@ -1,17 +1,33 @@
 import { Flexbox, Image, Skeleton, Typography } from '@cocstorage/ui';
 
+import useFlow from '@hooks/useFlow';
+
 interface StorageCardProps {
   src: string;
-  // TODO 추후 사용
-  // path: string;
+  path: string;
   name: string;
+  onClick?: () => void;
 }
 
-function StorageCard({ src, name }: StorageCardProps) {
+function StorageCard({ src, path, name, onClick }: StorageCardProps) {
+  const { push } = useFlow();
+
+  const handleClick = () => {
+    if (typeof onClick === 'function') {
+      onClick();
+      return;
+    }
+
+    push('StorageBoardsActivity', {
+      path
+    });
+  };
+
   return (
     <Flexbox
       direction="vertical"
       gap={6}
+      onClick={handleClick}
       customStyle={{
         cursor: 'pointer'
       }}

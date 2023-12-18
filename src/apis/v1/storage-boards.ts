@@ -30,16 +30,10 @@ export async function fetchLatestStorageBoards() {
   return data;
 }
 
-export async function fetchStorageBoards(
-  pathOrStorageId: number | string,
-  params?: FetchStorageBoardsParams
-) {
-  const { data } = await Axios.get<FetchStorageBoardsResponse>(
-    `${BASE_PATH}/${pathOrStorageId}/boards`,
-    {
-      params
-    }
-  );
+export async function fetchStorageBoards({ path, ...params }: FetchStorageBoardsParams) {
+  const { data } = await Axios.get<FetchStorageBoardsResponse>(`${BASE_PATH}/${path}/boards`, {
+    params
+  });
 
   return data;
 }

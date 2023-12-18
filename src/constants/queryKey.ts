@@ -1,4 +1,5 @@
 import { FetchNoticesParams } from '@schemas//v1/notices/request';
+import { FetchStorageBoardsParams } from '@schemas/v1/storage-boards/request';
 import { Id } from '@typings/common';
 
 const issueKeywords = {
@@ -7,7 +8,8 @@ const issueKeywords = {
 };
 
 const storages = {
-  all: ['storages']
+  all: ['storages'],
+  storage: (path: Id) => [...storages.all, 'storage', path]
 };
 
 const storageCategories = {
@@ -15,10 +17,15 @@ const storageCategories = {
 };
 
 const storageBoards = {
-  all: () => [...storages.all, 'boards'],
-  popular: () => [...storageBoards.all(), 'popular'],
-  worst: () => [...storageBoards.all(), 'worst'],
-  latest: () => [...storageBoards.all(), 'latest']
+  all: ({ path = 'all', ...params }: FetchStorageBoardsParams) => [
+    ...storages.all,
+    path,
+    'boards',
+    params
+  ],
+  popular: () => [...storageBoards.all({}), 'popular'],
+  worst: () => [...storageBoards.all({}), 'worst'],
+  latest: () => [...storageBoards.all({}), 'latest']
 };
 
 const notices = {

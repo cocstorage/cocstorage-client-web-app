@@ -1,7 +1,9 @@
 import { Pagination } from '@schemas/v1/common';
 import { StorageBoard } from '@schemas/v1/storage-boards/response';
+import { Id } from '@typings/common';
 
 export interface FetchStorageBoardsParams {
+  path?: Id;
   subject?: string | null;
   content?: string | null;
   nickname?: string | null;

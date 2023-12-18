@@ -12,7 +12,11 @@ export interface AppBarProps {
   renderLeft?: ReactNode;
   renderRight?: ReactNode;
   backButton?: {
-    renderIcon?: ReactNode;
+    render?: ReactNode;
+    onClick?: () => void;
+  };
+  closeButton?: {
+    render?: ReactNode;
     onClick?: () => void;
   };
   borderColor?: string;
@@ -25,16 +29,29 @@ function AppBar({
   height = `${HEADER_HEIGHT}px`,
   renderLeft,
   renderRight,
-  backButton = {
-    renderIcon: <Icon name="CaretSemiLeftOutlined" />
-  },
+  backButton,
+  closeButton,
   borderColor,
   borderSize = '0',
   disableCloseButton
 }: AppBarProps = {}) {
-  const { replace } = useFlow();
+  const { pop, replace } = useFlow();
 
-  const handleClick = () => replace('HomeActivity', {});
+  const handleClick = () => {
+    if (typeof backButton?.onClick === 'function') {
+      backButton.onClick();
+      return;
+    }
+    pop();
+  };
+
+  const handleClickClose = () => {
+    if (typeof closeButton?.onClick === 'function') {
+      closeButton.onClick();
+      return;
+    }
+    replace('HomeActivity', {});
+  };
 
   return {
     title,
@@ -62,21 +79,33 @@ function AppBar({
         )
       : undefined,
     backButton: {
-      renderIcon: () => backButton?.renderIcon,
-      onClick: backButton?.onClick
-    },
-    closeButton: !disableCloseButton
-      ? {
-          render: () => (
+      render: backButton?.render
+        ? () => backButton?.render
+        : () => (
             <IconButton
               onClick={handleClick}
               customStyle={{
-                paddingLeft: '0.75rem'
+                padding: '0 0.25rem 0 0.75rem'
               }}
             >
-              <Icon name="HomeOutlined" />
+              <Icon name="CaretSemiLeftOutlined" />
             </IconButton>
           )
+    },
+    closeButton: !disableCloseButton
+      ? {
+          render: closeButton?.render
+            ? () => closeButton?.render
+            : () => (
+                <IconButton
+                  onClick={handleClickClose}
+                  customStyle={{
+                    padding: '0 0.25rem 0 0.75rem'
+                  }}
+                >
+                  <Icon name="HomeOutlined" />
+                </IconButton>
+              )
         }
       : undefined,
     borderColor,
