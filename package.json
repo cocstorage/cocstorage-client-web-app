@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "prettier": "prettier --write --config ./.prettierrc \"**/*.{js,ts,tsx,json,css}\"",
+    "prettier": "prettier --write --config ./.prettierrc \"**/*.{js,ts,tsx,json,css,html}\"",
     "convention": "pnpm prettier && eslint --fix \"**/*.{js,ts,tsx}\"",
     "prepare": "husky install"
   },
