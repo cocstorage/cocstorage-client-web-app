@@ -17,6 +17,11 @@ export interface FetchStorageBoardsResponse {
   pagination: Pagination;
 }
 
+export interface FetchStorageBoardParams {
+  path: Id;
+  id: Id;
+}
+
 export interface PutStorageBoardData {
   nickname?: string;
   password?: string | number;

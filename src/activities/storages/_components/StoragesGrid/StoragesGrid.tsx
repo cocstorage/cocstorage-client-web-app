@@ -69,9 +69,9 @@ function StoragesGrid() {
           {name}
         </Typography>
         <Grid container columnGap={16} rowGap={20} customStyle={{ marginTop: 10 }}>
-          {categoryStorages.map(({ id: storageId, name: storageName, path, avatarUrl }) => (
+          {categoryStorages.map(({ id: storageId, name: storageName, avatarUrl }) => (
             <Grid key={`storage-category-${id}-storage-${storageId}`} item xs={3}>
-              <StorageCard src={avatarUrl || ''} path={path} name={storageName} />
+              <StorageCard src={avatarUrl || ''} path={storageId} name={storageName} />
             </Grid>
           ))}
         </Grid>

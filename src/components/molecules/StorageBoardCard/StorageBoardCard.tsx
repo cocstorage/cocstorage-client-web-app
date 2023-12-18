@@ -12,6 +12,7 @@ import {
 import Icon from '@cocstorage/ui-icons';
 import dayjs from 'dayjs';
 
+import useFlow from '@hooks/useFlow';
 import { StorageBoard } from '@schemas/v1/storage-boards/response';
 
 import {
@@ -30,6 +31,7 @@ export interface StorageBoardCardProps extends GenericComponentProps<unknown> {
   hideSymbolismBadge?: boolean;
   inStorage?: boolean;
   highLiteSubject?: string;
+  onClick?: () => void;
 }
 
 function StorageBoardCard({
@@ -38,14 +40,29 @@ function StorageBoardCard({
   hideSymbolismBadge = false,
   inStorage = true,
   highLiteSubject = '',
+  onClick,
   customStyle
 }: StorageBoardCardProps) {
+  const { push } = useFlow();
+
   const {
     theme: {
       mode,
       palette: { primary, text }
     }
   } = useTheme();
+
+  const handleClick = () => {
+    if (typeof onClick === 'function') {
+      onClick();
+      return;
+    }
+
+    push('StorageBoardActivity', {
+      path: storageBoard?.storage?.id,
+      id: storageBoard?.id
+    });
+  };
 
   const {
     user,
@@ -65,7 +82,7 @@ function StorageBoardCard({
 
   if (variant === 'normal') {
     return (
-      <StyledStorageBoardCard>
+      <StyledStorageBoardCard onClick={handleClick}>
         <Wrapper variant={variant} hasThumbnail={!!thumbnailUrl} css={customStyle}>
           <Box customStyle={{ borderRadius: round, overflow: 'hidden', zIndex: 1 }}>
             <Image
@@ -156,7 +173,7 @@ function StorageBoardCard({
   }
 
   return (
-    <StyledStorageBoardCard>
+    <StyledStorageBoardCard onClick={handleClick}>
       <Wrapper variant={variant} hasThumbnail={!!thumbnailUrl} css={customStyle}>
         <Flexbox
           direction="vertical"

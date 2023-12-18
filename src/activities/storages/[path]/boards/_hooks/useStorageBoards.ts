@@ -13,7 +13,9 @@ export default function useStorageBoards() {
     }),
     queryFn: () =>
       fetchStorageBoards({
-        path
-      })
+        path,
+        orderBy: 'latest'
+      }),
+    placeholderData: (previousData) => previousData
   });
 }

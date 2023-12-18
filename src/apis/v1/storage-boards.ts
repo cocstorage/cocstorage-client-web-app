@@ -1,5 +1,6 @@
 import Axios from '@libraries/axios';
 import {
+  FetchStorageBoardParams,
   FetchStorageBoardsParams,
   FetchStorageBoardsResponse,
   PutStorageBoardData
@@ -38,8 +39,8 @@ export async function fetchStorageBoards({ path, ...params }: FetchStorageBoards
   return data;
 }
 
-export async function fetchStorageBoard(pathOrStorageId: number | string, id: number) {
-  const { data } = await Axios.get<StorageBoard>(`${BASE_PATH}/${pathOrStorageId}/boards/${id}`);
+export async function fetchStorageBoard({ path, id }: FetchStorageBoardParams) {
+  const { data } = await Axios.get<StorageBoard>(`${BASE_PATH}/${path}/boards/${id}`);
 
   return data;
 }

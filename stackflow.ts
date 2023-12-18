@@ -6,6 +6,7 @@ import { stackflow } from '@stackflow/react';
 import HomeActivity from '@activities/home/activity';
 import MyActivity from '@activities/my/activity';
 import NoticeActivity from '@activities/notices/[id]/activity';
+import StorageBoardActivity from '@activities/storages/[path]/boards/[id]/activity';
 import StorageBoardsActivity from '@activities/storages/[path]/boards/acitvity';
 import StoragesActivity from '@activities/storages/activity';
 
@@ -22,7 +23,8 @@ export const { Stack, activities } = stackflow({
         MyActivity: '/my',
         NoticeActivity: '/notices/:id',
         StoragesActivity: '/storages',
-        StorageBoardsActivity: '/storages/:path/boards'
+        StorageBoardsActivity: '/storages/:path/boards',
+        StorageBoardActivity: '/storages/:path/boards/:id'
       },
       fallbackActivity: () => 'HomeActivity'
     })
@@ -32,7 +34,8 @@ export const { Stack, activities } = stackflow({
     MyActivity,
     NoticeActivity,
     StoragesActivity,
-    StorageBoardsActivity
+    StorageBoardsActivity,
+    StorageBoardActivity
   }
 });
 

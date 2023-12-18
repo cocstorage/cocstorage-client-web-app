@@ -1,10 +1,11 @@
 import { Flexbox, Image, Skeleton, Typography } from '@cocstorage/ui';
 
 import useFlow from '@hooks/useFlow';
+import { Id } from '@typings/common';
 
 interface StorageCardProps {
   src: string;
-  path: string;
+  path: Id;
   name: string;
   onClick?: () => void;
 }
