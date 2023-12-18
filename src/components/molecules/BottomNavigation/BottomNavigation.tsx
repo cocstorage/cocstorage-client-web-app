@@ -10,7 +10,7 @@ import type { TypeActivityNames } from '@stackflow-config';
 import { StyledBottomNavigation, NavigationItem } from './BottomNavigation.styles';
 
 function BottomNavigation() {
-  const { push, replace } = useFlow();
+  const { replace } = useFlow();
   const { enteredBy } = useActivity();
 
   const {
@@ -27,17 +27,13 @@ function BottomNavigation() {
   const handleClick = (event: MouseEvent<HTMLLIElement>) => {
     const activityName = event.currentTarget.dataset.acitivityName as TypeActivityNames;
 
-    if (activityName === 'MyActivity') {
-      push(activityName, {});
-    } else {
-      replace(
-        activityName,
-        {},
-        {
-          animate: false
-        }
-      );
-    }
+    replace(
+      activityName,
+      {},
+      {
+        animate: false
+      }
+    );
   };
 
   return (
