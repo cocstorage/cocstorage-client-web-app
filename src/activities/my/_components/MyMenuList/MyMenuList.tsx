@@ -1,7 +1,14 @@
+import { MouseEvent } from 'react';
+
 import { Flexbox, Typography, useTheme } from '@cocstorage/ui';
 import Icon from '@cocstorage/ui-icons';
 
+import useFlow from '@hooks/useFlow';
+import type { TypeActivityNames } from '@stackflow-config';
+
 function MyMenuList() {
+  const { push } = useFlow();
+
   const {
     theme: {
       mode,
@@ -9,9 +16,20 @@ function MyMenuList() {
     }
   } = useTheme();
 
+  const handleClick = (event: MouseEvent<HTMLDivElement>) => {
+    const activityName = event.currentTarget.dataset.acitivityName as TypeActivityNames;
+
+    push(activityName, {});
+  };
+
   return (
     <Flexbox direction="vertical" gap={20} customStyle={{ padding: '20px 0' }}>
-      <Flexbox gap={12} alignment="center">
+      <Flexbox
+        gap={12}
+        alignment="center"
+        data-acitivity-name="NoticesActivity"
+        onClick={handleClick}
+      >
         <Icon name="LoudSpeakerOutlined" />
         <Flexbox direction="vertical" gap={2}>
           <Typography fontWeight="bold">새로운 소식</Typography>
