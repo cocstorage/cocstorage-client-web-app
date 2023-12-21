@@ -5,6 +5,7 @@ import { stackflow } from '@stackflow/react';
 
 import HomeActivity from '@activities/home/activity';
 import MyActivity from '@activities/my/activity';
+import SettingsThemeActivity from '@activities/my/settings/theme/activity';
 import NoticeActivity from '@activities/notices/[id]/activity';
 import NoticesActivity from '@activities/notices/activity';
 import StorageBoardActivity from '@activities/storages/[path]/boards/[id]/activity';
@@ -22,6 +23,7 @@ export const { Stack, activities } = stackflow({
       routes: {
         HomeActivity: '/',
         MyActivity: '/my',
+        SettingsThemeActivity: '/my/settings/theme',
         NoticesActivity: '/notices',
         NoticeActivity: '/notices/:id',
         StoragesActivity: '/storages',
@@ -34,6 +36,7 @@ export const { Stack, activities } = stackflow({
   activities: {
     HomeActivity,
     MyActivity,
+    SettingsThemeActivity,
     NoticesActivity,
     NoticeActivity,
     StoragesActivity,

@@ -53,9 +53,5 @@ export default defineConfig({
     react({
       jsxImportSource: '@emotion/react'
     })
-  ],
-  server: {
-    port: 3000,
-    host: '192.168.0.37'
-  }
+  ]
 });

@@ -36,7 +36,12 @@ function MyMenuList() {
           <Typography color={text[mode].text1}>공지사항, 업데이트 내용</Typography>
         </Flexbox>
       </Flexbox>
-      <Flexbox gap={12} alignment="center">
+      <Flexbox
+        gap={12}
+        alignment="center"
+        data-acitivity-name="SettingsThemeActivity"
+        onClick={handleClick}
+      >
         <Icon name="ThemeOutlined" />
         <Flexbox direction="vertical" gap={2}>
           <Typography fontWeight="bold">테마</Typography>
