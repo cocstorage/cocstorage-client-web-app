@@ -25,7 +25,7 @@ function BottomNavigation() {
   const isEnteredMyActivity = enteredBy.activityName === 'MyActivity';
 
   const handleClick = (event: MouseEvent<HTMLLIElement>) => {
-    const activityName = event.currentTarget.dataset.acitivityName as TypeActivityNames;
+    const activityName = event.currentTarget.dataset.activityName as TypeActivityNames;
 
     replace(
       activityName,
@@ -39,7 +39,7 @@ function BottomNavigation() {
   return (
     <Box component="nav" customStyle={{ minHeight: 60 }}>
       <StyledBottomNavigation>
-        <NavigationItem data-acitivity-name="HomeActivity" onClick={handleClick}>
+        <NavigationItem data-activity-name="HomeActivity" onClick={handleClick}>
           <Icon
             name={isEnteredHomeActivity ? 'HomeFilled' : 'HomeOutlined'}
             color={isEnteredHomeActivity ? 'primary' : text[mode].text2}
@@ -48,7 +48,7 @@ function BottomNavigation() {
             홈
           </Typography>
         </NavigationItem>
-        <NavigationItem data-acitivity-name="StoragesActivity" onClick={handleClick}>
+        <NavigationItem data-activity-name="StoragesActivity" onClick={handleClick}>
           <Icon
             name={isEnteredStoragesActivity ? 'CommunityFilled' : 'CommunityOutlined'}
             color={isEnteredStoragesActivity ? 'primary' : text[mode].text2}
@@ -57,7 +57,7 @@ function BottomNavigation() {
             게시판
           </Typography>
         </NavigationItem>
-        <NavigationItem data-acitivity-name="MyActivity" onClick={handleClick}>
+        <NavigationItem data-activity-name="MyActivity" onClick={handleClick}>
           <Icon
             name={isEnteredMyActivity ? 'UserFilled' : 'UserOutlined'}
             color={isEnteredMyActivity ? 'primary' : text[mode].text2}

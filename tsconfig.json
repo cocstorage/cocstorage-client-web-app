@@ -37,7 +37,9 @@
       "@styles": ["./src/styles"],
       "@styles/*": ["./src/styles/*"],
       "@typings": ["./src/typings"],
-      "@typings/*": ["./src/typings/*"]
+      "@typings/*": ["./src/typings/*"],
+      "@utils": ["./src/utils"],
+      "@utils/*": ["./src/utils/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],

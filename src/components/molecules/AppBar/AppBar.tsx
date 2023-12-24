@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { PropsWithChildren, ReactNode } from 'react';
 
-import { Box, IconButton } from '@cocstorage/ui';
+import { Box, IconButton, Typography } from '@cocstorage/ui';
 import Icon from '@cocstorage/ui-icons';
 
 import { HEADER_HEIGHT } from '@constants/style';
@@ -112,5 +112,13 @@ function AppBar({
     borderSize
   };
 }
+
+AppBar.LeftTitle = function AppBarLeftTitle({ children }: PropsWithChildren) {
+  return (
+    <Typography component="h1" variant="h3" fontWeight="bold" noWrap>
+      {children}
+    </Typography>
+  );
+};
 
 export default AppBar;

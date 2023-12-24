@@ -2,6 +2,7 @@ import { Flexbox, Image, Skeleton, Typography } from '@cocstorage/ui';
 
 import useFlow from '@hooks/useFlow';
 import { Id } from '@typings/common';
+import getImageName from '@utils/getImageName';
 
 interface StorageCardProps {
   src: string;
@@ -33,7 +34,7 @@ function StorageCard({ src, path, name, onClick }: StorageCardProps) {
         cursor: 'pointer'
       }}
     >
-      <Image src={src || ''} round={6} alt={name} />
+      <Image src={src || ''} round={6} alt={getImageName(src)} />
       <Typography customStyle={{ textAlign: 'center' }}>{name}</Typography>
     </Flexbox>
   );

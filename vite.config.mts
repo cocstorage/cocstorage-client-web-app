@@ -46,6 +46,10 @@ export default defineConfig({
       {
         find: '@typings',
         replacement: path.resolve(__dirname, 'src/typings')
+      },
+      {
+        find: '@utils',
+        replacement: path.resolve(__dirname, 'src/utils')
       }
     ]
   },
@@ -53,5 +57,9 @@ export default defineConfig({
     react({
       jsxImportSource: '@emotion/react'
     })
-  ]
+  ],
+  server: {
+    host: '192.168.0.37',
+    port: 3000
+  }
 });

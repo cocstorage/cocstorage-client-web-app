@@ -2,6 +2,8 @@ import { Avatar, Box, Flexbox, Skeleton, Typography, useTheme } from '@cocstorag
 import Icon from '@cocstorage/ui-icons';
 import dayjs from 'dayjs';
 
+import getImageName from '@utils/getImageName';
+
 import { Info } from './NoticeInfo.styles';
 import useNotice from '../../_hooks/useNotice';
 
@@ -42,7 +44,7 @@ function NoticeInfo() {
               width={24}
               height={24}
               src={data?.user?.avatarUrl || ''}
-              alt="User Avatar Img"
+              alt={getImageName(data?.user?.avatarUrl)}
               fallback={{
                 width: 12,
                 height: 12

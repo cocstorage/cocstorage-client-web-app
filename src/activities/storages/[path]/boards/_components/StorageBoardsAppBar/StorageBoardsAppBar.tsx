@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchStorage } from '@apis/v1/storages';
 import AppBar from '@components/molecules/AppBar';
 import queryKey from '@constants/queryKey';
+import getImageName from '@utils/getImageName';
 
 function StorageBoardsAppBar() {
   const { path }: { path?: string } = useActivityParams();
@@ -38,7 +39,7 @@ function StorageBoardsAppBar() {
               height={24}
               src={data?.avatarUrl || ''}
               round={6}
-              alt="Storage Logo Img"
+              alt={getImageName(data?.avatarUrl)}
               fallback={{
                 name: 'ImageOutlined',
                 width: 20,

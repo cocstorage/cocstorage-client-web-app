@@ -2,6 +2,8 @@ import { Avatar, Box, Flexbox, Skeleton, Typography, useTheme } from '@cocstorag
 import Icon from '@cocstorage/ui-icons';
 import dayjs from 'dayjs';
 
+import getImageName from '@utils/getImageName';
+
 import { Info } from './StorageBoardInfo.styles';
 import useStorageBoard from '../../_hooks/useStorageBoard';
 
@@ -42,7 +44,7 @@ function StorageBoardInfo() {
               width={24}
               height={24}
               src={data?.user?.avatarUrl || ''}
-              alt="User Avatar Img"
+              alt={getImageName(data?.user?.avatarUrl)}
               fallback={{
                 width: 12,
                 height: 12

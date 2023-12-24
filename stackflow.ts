@@ -5,7 +5,10 @@ import { stackflow } from '@stackflow/react';
 
 import HomeActivity from '@activities/home/activity';
 import MyActivity from '@activities/my/activity';
-import SettingsThemeActivity from '@activities/my/settings/theme/activity';
+import InfoActivity from '@activities/my/settings/info/activity';
+import PolicyActivity from '@activities/my/settings/info/policy/activity';
+import PrivacyActivity from '@activities/my/settings/info/privacy/activity';
+import ThemeActivity from '@activities/my/settings/theme/activity';
 import NoticeActivity from '@activities/notices/[id]/activity';
 import NoticesActivity from '@activities/notices/activity';
 import StorageBoardActivity from '@activities/storages/[path]/boards/[id]/activity';
@@ -15,6 +18,7 @@ import StoragesActivity from '@activities/storages/activity';
 export const { Stack, activities } = stackflow({
   transitionDuration: 350,
   plugins: [
+    // TODO 기본 확장 UI 걷어내기
     basicRendererPlugin(),
     basicUIPlugin({
       theme: 'cupertino'
@@ -23,7 +27,10 @@ export const { Stack, activities } = stackflow({
       routes: {
         HomeActivity: '/',
         MyActivity: '/my',
-        SettingsThemeActivity: '/my/settings/theme',
+        ThemeActivity: '/my/settings/theme',
+        InfoActivity: '/my/settings/info',
+        PrivacyActivity: '/my/settings/info/privacy',
+        PolicyActivity: '/my/settings/info/policy',
         NoticesActivity: '/notices',
         NoticeActivity: '/notices/:id',
         StoragesActivity: '/storages',
@@ -36,7 +43,10 @@ export const { Stack, activities } = stackflow({
   activities: {
     HomeActivity,
     MyActivity,
-    SettingsThemeActivity,
+    ThemeActivity,
+    InfoActivity,
+    PrivacyActivity,
+    PolicyActivity,
     NoticesActivity,
     NoticeActivity,
     StoragesActivity,

@@ -14,6 +14,7 @@ import dayjs from 'dayjs';
 
 import useFlow from '@hooks/useFlow';
 import { StorageBoard } from '@schemas/v1/storage-boards/response';
+import getImageName from '@utils/getImageName';
 
 import {
   Dot,
@@ -88,7 +89,7 @@ function StorageBoardCard({
             <Image
               ratio="4:3"
               src={thumbnailUrl || ''}
-              alt="Thumbnail Img"
+              alt={getImageName(thumbnailUrl)}
               width={82}
               height="auto"
               round={round}
@@ -157,7 +158,7 @@ function StorageBoardCard({
                     width={14}
                     height={14}
                     src={storage?.avatarUrl || ''}
-                    alt="Storage Logo Img"
+                    alt={getImageName(storage?.avatarUrl)}
                     round={6}
                   />
                 )}
@@ -244,7 +245,7 @@ function StorageBoardCard({
                     width={14}
                     height={14}
                     src={storage?.avatarUrl || ''}
-                    alt="Storage Logo Img"
+                    alt={getImageName(storage?.avatarUrl)}
                     round={6}
                   />
                 )}
@@ -259,7 +260,7 @@ function StorageBoardCard({
                   {user?.avatarUrl && (
                     <Avatar
                       src={user?.avatarUrl || ''}
-                      alt="User Avatar Img"
+                      alt={getImageName(user?.avatarUrl)}
                       width={14}
                       height={14}
                     />
@@ -281,7 +282,7 @@ function StorageBoardCard({
             <Image
               ratio="16:9"
               src={thumbnailUrl || ''}
-              alt="Thumbnail Img"
+              alt={getImageName(thumbnailUrl)}
               width={61}
               height="auto"
               round={round}

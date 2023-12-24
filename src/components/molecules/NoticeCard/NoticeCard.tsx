@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 
 import useFlow from '@hooks/useFlow';
 import { Notice } from '@schemas/v1/notices/response';
+import getImageName from '@utils/getImageName';
 
 import { Dot, Info, InfoLabel, StyledNoticeCard, UserInfo, Wrapper } from './NoticeCard.styles';
 
@@ -44,7 +45,7 @@ function NoticeCard({
           width={82}
           height="auto"
           src={thumbnailUrl || ''}
-          alt="Thumbnail Img"
+          alt={getImageName(thumbnailUrl)}
           round={6}
         />
         <Flexbox
@@ -77,7 +78,7 @@ function NoticeCard({
                     width={14}
                     height={14}
                     src={user?.avatarUrl || ''}
-                    alt="User Avatar Img"
+                    alt={getImageName(user?.avatarUrl)}
                   />
                 )}
                 <Typography variant="s2" color={text[mode].text1}>
