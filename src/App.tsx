@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import dayjs from 'dayjs';
 import RelativeTime from 'dayjs/plugin/relativeTime';
 
+import HelmetProvider from '@providers/HelmetProvider';
 import QueryClientProvider from '@providers/QueryClientProvider';
 import ThemeProvider from '@providers/ThemeProvider';
 import { Stack } from '@stackflow-config';
@@ -37,7 +38,9 @@ function App() {
   return (
     <QueryClientProvider>
       <ThemeProvider>
-        <Stack />
+        <HelmetProvider>
+          <Stack />
+        </HelmetProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );
