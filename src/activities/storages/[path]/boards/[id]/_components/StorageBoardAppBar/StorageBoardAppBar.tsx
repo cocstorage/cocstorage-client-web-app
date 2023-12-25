@@ -1,8 +1,9 @@
 import { Avatar } from '@cocstorage/ui';
 
-import useStorage from '@activities/storages/[path]/boards/[id]/_hooks/useStorage';
 import AppBar from '@components/molecules/AppBar';
 import getImageName from '@utils/getImageName';
+
+import useStorage from '../../_hooks/useStorage';
 
 function StorageBoardAppBar() {
   const { data } = useStorage();

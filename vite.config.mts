@@ -8,6 +8,10 @@ export default defineConfig({
     alias: [
       { find: '@', replacement: path.resolve(__dirname, 'src') },
       {
+        find: '@stackflow-config',
+        replacement: path.resolve(__dirname, 'stackflow')
+      },
+      {
         find: '@activities',
         replacement: path.resolve(__dirname, 'src/activities')
       },

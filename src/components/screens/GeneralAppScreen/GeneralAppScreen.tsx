@@ -1,14 +1,11 @@
 import { PropsWithChildren, ReactNode, useLayoutEffect, useRef } from 'react';
 
 import { useTheme } from '@cocstorage/ui';
-import { AppScreen } from '@stackflow/plugin-basic-ui';
-
-import type AppBar from '@components/molecules/AppBar';
+import { AppScreen, AppScreenProps } from '@stackflow/plugin-basic-ui';
 
 import { AppScreenInner, AppScreenContent } from './GeneralAppScreen.styles';
 
-interface GeneralAppScreenProps {
-  appBar?: ReturnType<typeof AppBar>;
+interface GeneralAppScreenProps extends AppScreenProps {
   bottomNavigation?: ReactNode;
 }
 

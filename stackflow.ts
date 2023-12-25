@@ -21,7 +21,8 @@ export const { Stack, activities } = stackflow({
     // TODO 기본 확장 UI 걷어내기
     basicRendererPlugin(),
     basicUIPlugin({
-      theme: 'cupertino'
+      theme: 'cupertino',
+      rootClassName: 'basic-ui-root'
     }),
     historySyncPlugin({
       routes: {

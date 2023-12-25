@@ -5,8 +5,7 @@ import RelativeTime from 'dayjs/plugin/relativeTime';
 
 import QueryClientProvider from '@providers/QueryClientProvider';
 import ThemeProvider from '@providers/ThemeProvider';
-
-import { Stack } from '../stackflow';
+import { Stack } from '@stackflow-config';
 
 import 'dayjs/locale/ko';
 
@@ -18,7 +17,9 @@ function App() {
     const root = document.getElementById('root');
     const handleTouchStart = (event: TouchEvent) => {
       const target = event.target as HTMLDivElement;
-      // TODO stackflow 에서 생성하는 상위 부모 요소들을 명확하게 추적할 수 있는 방법 고민
+      // iOS Safari Swipe Back 을 강제로 막기 위함
+      // TODO basicUIPlugin 에서 생성하는 상위 부모 요소들을 명확하게 추적할 수 있는 방법 고민
+      // TODO 결국에는 basicUIPlugin 을 걷어낼 것
       const isPreventDefault =
         target.className.indexOf('dh') !== -1 || target.className.indexOf('_1') !== -1;
       if (isPreventDefault) {

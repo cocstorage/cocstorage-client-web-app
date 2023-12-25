@@ -14,7 +14,7 @@ function StorageBoardRecommend() {
   const { data, isPending } = useStorageBoard();
 
   return (
-    <Flexbox component="section" justifyContent="center" customStyle={{ marginTop: 40 }}>
+    <Flexbox component="section" justifyContent="center" customStyle={{ margin: '40px 0' }}>
       {isPending && <Skeleton width={100} height={38} round={8} disableAspectRatio />}
       {!isPending && (
         <Flexbox>
