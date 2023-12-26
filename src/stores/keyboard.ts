@@ -8,13 +8,13 @@ interface KeyboardState {
   setVirtualHeight: (virtualHeight: number) => void;
 }
 
-const keyboardCreator: StateCreator<KeyboardState> = (set, getState) => ({
+const keyboardCreator: StateCreator<KeyboardState> = (set) => ({
   isFocus: false,
   virtualHeight: 0,
   handleFocus: () =>
-    set({
-      isFocus: !getState().isFocus
-    }),
+    set((state) => ({
+      isFocus: !state.isFocus
+    })),
   setVirtualHeight: (virtualHeight) =>
     set({
       virtualHeight
