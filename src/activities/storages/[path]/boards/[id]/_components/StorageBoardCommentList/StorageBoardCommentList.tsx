@@ -33,7 +33,14 @@ function StorageBoardCommentList() {
   if (!isPending && !storageBoardCommentsData?.comments?.length) return null;
 
   return (
-    <Flexbox component="section" direction="vertical" gap={24}>
+    <Flexbox
+      component="section"
+      direction="vertical"
+      gap={24}
+      customStyle={{
+        margin: '20px 0'
+      }}
+    >
       <Flexbox gap={4} alignment="center">
         <Icon name="CommentOutlined" width={20} height={20} />
         {isPending && <Skeleton width={40} height={20} round={6} disableAspectRatio />}
