@@ -44,7 +44,15 @@ StorageCard.Skeleton = function StorageCardSkeleton() {
   return (
     <Flexbox direction="vertical" gap={6}>
       <Skeleton round={6} />
-      <Skeleton width={70} height={18} round={6} disableAspectRatio />
+      <Skeleton
+        width={70}
+        height={18}
+        round={6}
+        disableAspectRatio
+        customStyle={{
+          margin: 'auto'
+        }}
+      />
     </Flexbox>
   );
 };
