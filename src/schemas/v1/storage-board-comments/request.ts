@@ -1,7 +1,8 @@
 import { Pagination } from '@schemas/v1/common';
 import { StorageBoardComment } from '@schemas/v1/storage-board-comments/response';
+import { FetchStorageBoardParams } from '@schemas/v1/storage-boards/request';
 
-export interface FetchStorageBoardCommentsParams {
+export interface FetchStorageBoardCommentsParams extends FetchStorageBoardParams {
   page?: number;
   per?: number;
   orderBy?: string;

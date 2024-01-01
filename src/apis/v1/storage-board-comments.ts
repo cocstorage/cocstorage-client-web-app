@@ -9,13 +9,13 @@ import { StorageBoardComment } from '@schemas/v1/storage-board-comments/response
 
 const BASE_PATH = '/storages';
 
-export async function fetchStorageBoardComments(
-  storageId: number,
-  id: number | string,
-  params?: FetchStorageBoardCommentsParams
-) {
+export async function fetchStorageBoardComments({
+  path,
+  id,
+  ...params
+}: FetchStorageBoardCommentsParams) {
   const { data } = await Axios.get<FetchStorageBoardCommentsResponse>(
-    `${BASE_PATH}/${storageId}/boards/${id}/comments`,
+    `${BASE_PATH}/${path}/boards/${id}/comments`,
     {
       params
     }

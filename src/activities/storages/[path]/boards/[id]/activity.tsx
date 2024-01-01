@@ -1,6 +1,7 @@
 import GeneralAppScreen from '@components/screens/GeneralAppScreen';
 
 import StorageBoardAppBar from './_components/StorageBoardAppBar';
+import StorageBoardCommentList from './_components/StorageBoardCommentList';
 import StorageBoardContent from './_components/StorageBoardContent';
 import StorageBoardFooter from './_components/StorageBoardFooter';
 import StorageBoardInfo from './_components/StorageBoardInfo';
@@ -12,6 +13,7 @@ function StorageBoardActivity() {
       <StorageBoardInfo />
       <StorageBoardContent />
       <StorageBoardRecommend />
+      <StorageBoardCommentList />
     </GeneralAppScreen>
   );
 }

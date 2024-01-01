@@ -1,4 +1,5 @@
 import { FetchNoticesParams } from '@schemas//v1/notices/request';
+import { FetchStorageBoardCommentsParams } from '@schemas/v1/storage-board-comments/request';
 import {
   FetchStorageBoardParams,
   FetchStorageBoardsParams
@@ -32,6 +33,14 @@ const storageBoards = {
   storageBoard: ({ path, id }: FetchStorageBoardParams) => [...storageBoards.all({ path }), id]
 };
 
+const storageBoardComments = {
+  all: ({ page, per, orderBy, ...params }: FetchStorageBoardCommentsParams) => [
+    ...storageBoards.storageBoard(params),
+    'comments',
+    { page, per, orderBy }
+  ]
+};
+
 const notices = {
   all: (params: FetchNoticesParams) => ['notices', params],
   notice: (id: Id) => [...notices.all({}), id]
@@ -42,5 +51,6 @@ export default {
   storages,
   storageCategories,
   storageBoards,
+  storageBoardComments,
   notices
 };
